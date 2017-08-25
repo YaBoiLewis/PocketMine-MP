@@ -40,7 +40,7 @@ fi
 mkdir plugins 2> /dev/null
 mv DevTools.phar plugins
 cp -r tests/plugins/PocketMine-TesterPlugin ./plugins
-echo -e "stop\n" | "$PHP_BINARY" src/pocketmine/PocketMine.php --no-wizard --disable-ansi --disable-readline --debug.level=2
+echo -e "stop\n" | "$PHP_BINARY" PocketMine-MP.phar --no-wizard --disable-ansi --disable-readline --debug.level=2
 
 output=$(grep '\[TesterPlugin\]' server.log)
 if [ "$output" == "" ]; then
