@@ -71,6 +71,10 @@ class RakLibInterface implements ServerInstance, AdvancedSourceInterface{
 		$this->interface = new ServerHandler($this->rakLib, $this);
 	}
 
+	public function start(){
+		$this->rakLib->start();
+	}
+
 	public function setNetwork(Network $network){
 		$this->network = $network;
 	}
