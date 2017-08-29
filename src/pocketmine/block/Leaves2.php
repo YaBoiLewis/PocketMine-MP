@@ -38,8 +38,13 @@ class Leaves2 extends Leaves{
 		return $names[$this->meta & 0x01];
 	}
 
-	public function getVariantBitmask() : int{
-		return 0x01;
+	public function getBitmaskInfo() : array{
+		return [
+			1 => self::BITMASK_VARIANT,
+			2 => self::BITMASK_UNUSED,
+			4 => self::BITMASK_PHYSICS,
+			8 => self::BITMASK_PHYSICS
+		];
 	}
 
 	public function getDrops(Item $item) : array{

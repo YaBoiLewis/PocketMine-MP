@@ -95,4 +95,13 @@ abstract class Crops extends Flowable{
 
 		return false;
 	}
+
+	public function getBitmaskInfo() : array{
+		return [
+			1 => self::BITMASK_TIMER,
+			2 => self::BITMASK_TIMER,
+			4 => self::BITMASK_TIMER,
+			8 => self::BITMASK_UNUSED
+		];
+	}
 }

@@ -44,4 +44,13 @@ class BrewingStand extends Transparent{
 	public function getToolType() : int{
 		return Tool::TYPE_PICKAXE;
 	}
+
+	public function getBitmaskInfo() : array{
+		return [
+			1 => self::BITMASK_OTHER,
+			2 => self::BITMASK_OTHER,
+			4 => self::BITMASK_OTHER,
+			8 => self::BITMASK_UNUSED
+		];
+	}
 }

@@ -49,7 +49,12 @@ class StonePressurePlate extends Transparent{
 		return Tool::TYPE_PICKAXE;
 	}
 
-	public function getVariantBitmask() : int{
-		return 0;
+	public function getBitmaskInfo() : array{
+		return [
+			1 => self::BITMASK_TOGGLE,
+			2 => self::BITMASK_UNUSED,
+			4 => self::BITMASK_UNUSED,
+			8 => self::BITMASK_UNUSED
+		];
 	}
 }

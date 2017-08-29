@@ -37,8 +37,13 @@ class Tripwire extends Flowable{
 		return "Tripwire";
 	}
 
-	public function getVariantBitmask() : int{
-		return 0;
+	public function getBitmaskInfo() : array{
+		return [
+			1 => self::BITMASK_PHYSICS,
+			2 => self::BITMASK_UNUSED,
+			4 => self::BITMASK_PHYSICS,
+			8 => self::BITMASK_OTHER
+		];
 	}
 
 	public function getDrops(Item $item) : array{

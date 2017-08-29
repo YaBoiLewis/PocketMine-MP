@@ -42,4 +42,13 @@ class LightWeightedPressurePlate extends Transparent{
 	public function getHardness() : float{
 		return 0.5;
 	}
+
+	public function getBitmaskInfo() : array{
+		return [
+			1 => self::BITMASK_PHYSICS,
+			2 => self::BITMASK_PHYSICS,
+			4 => self::BITMASK_PHYSICS,
+			8 => self::BITMASK_PHYSICS
+		];
+	}
 }

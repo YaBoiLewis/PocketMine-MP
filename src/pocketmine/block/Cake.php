@@ -137,4 +137,13 @@ class Cake extends Transparent implements FoodSource{
 	public function onConsume(Entity $consumer){
 
 	}
+
+	public function getBitmaskInfo() : array{
+		return [
+			1 => self::BITMASK_INTERSECTION,
+			2 => self::BITMASK_INTERSECTION,
+			4 => self::BITMASK_INTERSECTION,
+			8 => self::BITMASK_UNUSED
+		];
+	}
 }

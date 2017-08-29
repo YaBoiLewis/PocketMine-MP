@@ -46,10 +46,6 @@ class Snow extends Solid{
 		return TieredTool::TIER_WOODEN;
 	}
 
-	public function getVariantBitmask() : int{
-		return 0;
-	}
-
 	public function getName() : string{
 		return "Snow Block";
 	}

@@ -67,10 +67,6 @@ class RedstoneOre extends Solid{
 		return TieredTool::TIER_IRON;
 	}
 
-	public function getVariantBitmask() : int{
-		return 0;
-	}
-
 	public function getDrops(Item $item) : array{
 		if($this->canBeBrokenWith($item)){
 			return [

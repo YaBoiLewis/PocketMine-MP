@@ -46,10 +46,6 @@ class Obsidian extends Solid{
 		return TieredTool::TIER_DIAMOND;
 	}
 
-	public function getVariantBitmask() : int{
-		return 0;
-	}
-
 	public function getHardness() : float{
 		return 35;
 	}

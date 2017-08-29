@@ -69,8 +69,14 @@ class Wood extends Solid{
 		return true;
 	}
 
-	public function getVariantBitmask() : int{
-		return 0x03;
+
+	public function getBitmaskInfo() : array{
+		return [
+			1 => self::BITMASK_VARIANT,
+			2 => self::BITMASK_VARIANT,
+			4 => self::BITMASK_ROTATION,
+			8 => self::BITMASK_ROTATION
+		];
 	}
 
 	public function getToolType() : int{

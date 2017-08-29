@@ -62,8 +62,13 @@ class Anvil extends Fallable{
 		return $names[$this->meta & 0x0c] ?? "Anvil";
 	}
 
-	public function getVariantBitmask() : int{
-		return 0x0c;
+	public function getBitmaskInfo() : array{
+		return [
+			1 => self::BITMASK_ROTATION,
+			2 => self::BITMASK_ROTATION,
+			4 => self::BITMASK_VARIANT,
+			8 => self::BITMASK_VARIANT
+		];
 	}
 
 	public function getToolType() : int{

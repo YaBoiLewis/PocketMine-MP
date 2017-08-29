@@ -95,4 +95,13 @@ class CobblestoneWall extends Transparent{
 	public function canConnect(Block $block){
 		return ($block->isSolid() and !$block->isTransparent()) or $block instanceof CobblestoneWall or $block instanceof FenceGate;
 	}
+
+	public function getBitmaskInfo() : array{
+		return [
+			1 => self::BITMASK_VARIANT,
+			2 => self::BITMASK_UNUSED,
+			4 => self::BITMASK_UNUSED,
+			8 => self::BITMASK_UNUSED
+		];
+	}
 }

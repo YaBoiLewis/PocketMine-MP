@@ -115,4 +115,13 @@ class Farmland extends Transparent{
 			Item::get(Item::DIRT, 0, 1)
 		];
 	}
+
+	public function getBitmaskInfo() : array{
+		return [
+			1 => self::BITMASK_PHYSICS,
+			2 => self::BITMASK_PHYSICS,
+			4 => self::BITMASK_PHYSICS,
+			8 => self::BITMASK_UNUSED
+		];
+	}
 }

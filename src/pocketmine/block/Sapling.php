@@ -110,7 +110,12 @@ class Sapling extends Flowable{
 		return false;
 	}
 
-	public function getVariantBitmask() : int{
-		return 0x07;
+	public function getBitmaskInfo() : array{
+		return [
+			1 => self::BITMASK_VARIANT,
+			2 => self::BITMASK_VARIANT,
+			4 => self::BITMASK_VARIANT,
+			8 => self::BITMASK_TIMER,
+		];
 	}
 }

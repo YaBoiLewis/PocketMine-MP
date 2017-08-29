@@ -45,5 +45,14 @@ class DaylightSensor extends Transparent{
 		return Tool::TYPE_AXE;
 	}
 
+	public function getBitmaskInfo() : array{
+		return [
+			1 => self::BITMASK_PHYSICS,
+			2 => self::BITMASK_PHYSICS,
+			4 => self::BITMASK_PHYSICS,
+			8 => self::BITMASK_PHYSICS
+		];
+	}
+
 	//TODO
 }

@@ -55,10 +55,6 @@ class Cobweb extends Flowable{
 		return Tool::REQUIRED;
 	}
 
-	public function getVariantBitmask() : int{
-		return 0;
-	}
-
 	public function onEntityCollide(Entity $entity){
 		$entity->resetFallDistance();
 	}

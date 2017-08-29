@@ -84,4 +84,13 @@ class NetherWartPlant extends Flowable{
 			Item::get(Item::NETHER_WART, 0, ($this->meta === 3 ? mt_rand(2, 4) : 1))
 		];
 	}
+
+	public function getBitmaskInfo() : array{
+		return [
+			1 => self::BITMASK_TIMER,
+			2 => self::BITMASK_TIMER,
+			4 => self::BITMASK_UNUSED,
+			8 => self::BITMASK_UNUSED
+		];
+	}
 }

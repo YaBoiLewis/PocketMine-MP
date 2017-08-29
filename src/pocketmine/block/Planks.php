@@ -59,4 +59,12 @@ class Planks extends Solid{
 		return $names[$this->meta & 0x07] ?? "Unknown";
 	}
 
+	public function getBitmaskInfo() : array{
+		return [
+			1 => self::BITMASK_VARIANT,
+			2 => self::BITMASK_VARIANT,
+			4 => self::BITMASK_VARIANT,
+			8 => self::BITMASK_UNUSED
+		];
+	}
 }

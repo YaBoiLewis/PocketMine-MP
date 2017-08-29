@@ -79,8 +79,4 @@ class WaterLily extends Flowable{
 
 		return false;
 	}
-
-	public function getVariantBitmask() : int{
-		return 0;
-	}
 }

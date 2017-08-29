@@ -59,4 +59,13 @@ class StoneBricks extends Solid{
 		];
 		return $names[$this->meta & 0x03];
 	}
+
+	public function getBitmaskInfo() : array{
+		return [
+			1 => self::BITMASK_VARIANT,
+			2 => self::BITMASK_VARIANT,
+			4 => self::BITMASK_UNUSED,
+			8 => self::BITMASK_UNUSED
+		];
+	}
 }

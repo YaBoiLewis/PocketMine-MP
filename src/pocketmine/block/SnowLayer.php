@@ -58,8 +58,13 @@ class SnowLayer extends Flowable{
 		return TieredTool::TIER_WOODEN;
 	}
 
-	public function getVariantBitmask() : int{
-		return 0;
+	public function getBitmaskInfo() : array{
+		return [
+			1 => self::BITMASK_INTERSECTION,
+			2 => self::BITMASK_INTERSECTION,
+			4 => self::BITMASK_INTERSECTION,
+			8 => self::BITMASK_UNUSED
+		];
 	}
 
 	public function ticksRandomly() : bool{

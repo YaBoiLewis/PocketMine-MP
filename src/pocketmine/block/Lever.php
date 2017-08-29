@@ -97,7 +97,12 @@ class Lever extends Flowable{
 		return true;
 	}
 
-	public function getVariantBitmask() : int{
-		return 0;
+	public function getBitmaskInfo() : array{
+		return [
+			1 => self::BITMASK_ROTATION,
+			2 => self::BITMASK_ROTATION,
+			4 => self::BITMASK_ROTATION,
+			8 => self::BITMASK_TOGGLE
+		];
 	}
 }

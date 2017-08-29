@@ -41,6 +41,24 @@ use pocketmine\Player;
 use pocketmine\plugin\Plugin;
 
 class Block extends Position implements BlockIds, Metadatable{
+	/** This bit is not used and should always be unset/ignored. */
+	const BITMASK_UNUSED = 0;
+	/** This bit stores the variant of the block, e.g. the texture used. This bit should not affect block mechanism and should be the only bit(s) retained in block drops. */
+	const BITMASK_VARIANT = 1;
+	/** This bit stores the rotation info of the block (3 dimensions). */
+	const BITMASK_ROTATION = 2;
+	/** This bit stores whether the block is toggled due to right-click or otherwise explicit user action, e.g. an open/closed door, an on/off lever. */
+	const BITMASK_TOGGLE = 3;
+	/** This bit stores which segment of a complex structure this block is in, e.g. which block of a bed. */
+	const BITMASK_SEGMENT = 4;
+	/** This bit stores information that affects a block's intersection with the player (including but not limited to bounding boxes) _but is not a rotation, toggle or segment bit_. */
+	const BITMASK_INTERSECTION = 5;
+	/** This bit stores a timer used with random ticking, e.g. crops growth. */
+	const BITMASK_TIMER = 6;
+	/** This bit stores information used to handle a block's physics, e.g. water spread. */
+	const BITMASK_PHYSICS = 7;
+	/** This bit contains very block-specific information that cannot be categorized into other bit types */
+	const BITMASK_OTHER = 8;
 
 	/** @var \SplFixedArray */
 	public static $list = null;
@@ -367,8 +385,12 @@ class Block extends Position implements BlockIds, Metadatable{
 	protected $toolType = Tool::TYPE_NONE;
 	/** @var int */
 	protected $harvestLevel = Tool::NOT_REQUIRED;
-	/** @var int */
-	protected $variantBitmask = -1;
+	protected $bitmaskInfo = [
+		1 => self::BITMASK_UNUSED,
+		2 => self::BITMASK_UNUSED,
+		4 => self::BITMASK_UNUSED,
+		8 => self::BITMASK_UNUSED
+	];
 
 
 	/**
@@ -702,28 +724,25 @@ class Block extends Position implements BlockIds, Metadatable{
 		return $this;
 	}
 
-	/**
-	 * Returns the bitmask used to get the true variant of this block. Used for things like removing rotation meta
-	 * values from dropped items such as wooden logs.
-	 *
-	 * By default this is -1, which will cause blocks of this type to always drop with damage. If you want blocks not to
-	 * retain their damage, override this with 0 in descendent classes.
-	 *
-	 * @return int
-	 */
 	public function getVariantBitmask() : int{
-		return $this->variantBitmask;
+		$bitmask = 0;
+		foreach($this->getBitmaskInfo() as $bit => $type){
+			if($type === self::BITMASK_VARIANT){
+				$bitmask |= $bit;
+			}
+		}
+		return $bitmask;
 	}
 
 	/**
-	 * @param int $mask
+	 * Returns an array with keys [1, 2, 4, 8] mapping to values from the Block::BITMASK_* constants.
 	 *
-	 * @return Block
+	 * The value will explain what the different bits in the damage are about.
+	 *
+	 * @return int[]
 	 */
-	protected function setVariantBitmask(int $mask) : Block{
-		$this->variantBitmask = $mask;
-
-		return $this;
+	public function getBitmaskInfo() : array{
+		return $this->bitmaskInfo;
 	}
 
 	/**

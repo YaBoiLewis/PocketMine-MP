@@ -49,10 +49,6 @@ class Fence extends Transparent{
 		return Tool::TYPE_AXE;
 	}
 
-	public function getVariantBitmask() : int{
-		return 0x07;
-	}
-
 	public function getName() : string{
 		static $names = [
 			self::FENCE_OAK => "Oak Fence",
@@ -93,4 +89,12 @@ class Fence extends Transparent{
 		return ($block instanceof Fence or $block instanceof FenceGate) ? true : $block->isSolid() and !$block->isTransparent();
 	}
 
+	public function getBitmaskInfo() : array{
+		return [
+			1 => self::BITMASK_VARIANT,
+			2 => self::BITMASK_VARIANT,
+			4 => self::BITMASK_VARIANT,
+			8 => self::BITMASK_UNUSED
+		];
+	}
 }

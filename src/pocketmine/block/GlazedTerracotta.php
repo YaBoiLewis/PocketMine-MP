@@ -42,8 +42,13 @@ class GlazedTerracotta extends Solid{
 		return TieredTool::TIER_WOODEN;
 	}
 
-	public function getVariantBitmask() : int{
-		return 0;
+	public function getBitmaskInfo() : array{
+		return [
+			1 => self::BITMASK_ROTATION,
+			2 => self::BITMASK_ROTATION,
+			4 => self::BITMASK_UNUSED,
+			8 => self::BITMASK_UNUSED
+		];
 	}
 
 	public function place(Item $item, Block $block, Block $target, int $face, float $fx, float $fy, float $fz, Player $player = null) : bool{

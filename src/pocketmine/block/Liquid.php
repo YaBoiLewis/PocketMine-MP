@@ -449,4 +449,13 @@ abstract class Liquid extends Transparent{
 	public function getDrops(Item $item) : array{
 		return [];
 	}
+
+	public function getBitmaskInfo() : array{
+		return [
+			1 => self::BITMASK_INTERSECTION,
+			2 => self::BITMASK_INTERSECTION,
+			4 => self::BITMASK_INTERSECTION,
+			8 => self::BITMASK_PHYSICS
+		];
+	}
 }

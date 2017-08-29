@@ -33,8 +33,6 @@ use pocketmine\Player;
 
 abstract class Door extends Transparent{
 
-	protected $variantBitmask = 0;
-
 	public function isSolid() : bool{
 		return false;
 	}
@@ -287,5 +285,14 @@ abstract class Door extends Transparent{
 
 	public function getAffectedBlocks() : array{
 		return [$this, $this->getSide(($this->meta & 0x08) === 0x08 ? Vector3::SIDE_DOWN : Vector3::SIDE_UP)];
+	}
+
+	public function getBitmaskInfo() : array{
+		return [
+			1 => self::BITMASK_ROTATION,
+			2 => self::BITMASK_ROTATION,
+			4 => self::BITMASK_TOGGLE,
+			8 => self::BITMASK_SEGMENT
+		];
 	}
 }

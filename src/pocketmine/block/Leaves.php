@@ -57,8 +57,13 @@ class Leaves extends Transparent{
 		return Tool::REQUIRED;
 	}
 
-	public function getVariantBitmask() : int{
-		return 0x03;
+	public function getBitmaskInfo() : array{
+		return [
+			1 => self::BITMASK_VARIANT,
+			2 => self::BITMASK_VARIANT,
+			4 => self::BITMASK_PHYSICS,
+			8 => self::BITMASK_PHYSICS
+		];
 	}
 
 	public function getName() : string{

@@ -233,4 +233,12 @@ class Bed extends Transparent{
 		return [$this, $this->getSide(self::getOtherHalfSide($this->meta))];
 	}
 
+	public function getBitmaskInfo() : array{
+		return [
+			1 => Block::BITMASK_ROTATION,
+			2 => Block::BITMASK_ROTATION,
+			4 => Block::BITMASK_TOGGLE,
+			8 => Block::BITMASK_SEGMENT
+		];
+	}
 }

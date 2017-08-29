@@ -95,4 +95,12 @@ class EndRod extends Flowable{
 		];
 	}
 
+	public function getBitmaskInfo() : array{
+		return [
+			1 => self::BITMASK_ROTATION,
+			2 => self::BITMASK_ROTATION,
+			4 => self::BITMASK_ROTATION,
+			8 => self::BITMASK_UNUSED
+		];
+	}
 }

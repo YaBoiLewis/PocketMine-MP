@@ -50,4 +50,13 @@ class TripwireHook extends Flowable{
 
 		return false;
 	}
+
+	public function getBitmaskInfo() : array{
+		return [
+			1 => self::BITMASK_ROTATION,
+			2 => self::BITMASK_ROTATION,
+			4 => self::BITMASK_TOGGLE, // a connected hook
+			8 => self::BITMASK_PHYSICS
+		];
+	}
 }

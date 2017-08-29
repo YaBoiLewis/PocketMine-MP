@@ -41,5 +41,14 @@ class CocoaBlock extends Solid{
 		return Tool::TYPE_AXE;
 	}
 
+	public function getBitmaskInfo() : array{
+		return [
+			1 => self::BITMASK_ROTATION,
+			2 => self::BITMASK_ROTATION,
+			4 => self::BITMASK_TIMER,
+			8 => self::BITMASK_TIMER
+		];
+	}
+
 	//TODO
 }

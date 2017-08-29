@@ -49,9 +49,5 @@ class IronBars extends Thin{
 	public function getRequiredHarvestLevel() : int{
 		return TieredTool::TIER_WOODEN;
 	}
-
-	public function getVariantBitmask() : int{
-		return 0;
-	}
 }
 

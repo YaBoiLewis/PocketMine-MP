@@ -81,4 +81,13 @@ class Rail extends Flowable{
 			Item::get($this->getId(), 0, 1)
 		];
 	}
+
+	public function getBitmaskInfo() : array{
+		return [
+			1 => self::BITMASK_ROTATION,
+			2 => self::BITMASK_ROTATION,
+			4 => self::BITMASK_ROTATION,
+			8 => self::BITMASK_ROTATION
+		];
+	}
 }

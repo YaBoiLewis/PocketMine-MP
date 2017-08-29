@@ -47,8 +47,13 @@ class DoubleStoneSlab extends Solid{
 		return TieredTool::TIER_WOODEN;
 	}
 
-	public function getVariantBitmask() : int{
-		return 0x07;
+	public function getBitmaskInfo() : array{
+		return [
+			1 => self::BITMASK_VARIANT,
+			2 => self::BITMASK_VARIANT,
+			4 => self::BITMASK_VARIANT,
+			8 => self::BITMASK_VARIANT
+		];
 	}
 
 	public function getName() : string{
@@ -66,13 +71,9 @@ class DoubleStoneSlab extends Solid{
 	}
 
 	public function getDrops(Item $item) : array{
-		if($this->canBeBrokenWith($item)){
-			return [
-				Item::get(Item::STONE_SLAB, $this->meta & 0x07, 2),
-			];
-		}else{
-			return [];
-		}
+		return $this->canBeBrokenWith($item) ? [
+			Item::get(Item::STONE_SLAB, $this->meta & 0x07, 2),
+		] : [];
 	}
 
 }

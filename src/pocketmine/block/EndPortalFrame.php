@@ -65,4 +65,13 @@ class EndPortalFrame extends Solid{
 			$this->z + 1
 		);
 	}
+
+	public function getBitmaskInfo() : array{
+		return [
+			1 => self::BITMASK_ROTATION,
+			2 => self::BITMASK_ROTATION,
+			4 => self::BITMASK_TOGGLE,
+			8 => self::BITMASK_UNUSED
+		];
+	}
 }

@@ -47,10 +47,6 @@ class LapisOre extends Solid{
 		return TieredTool::TIER_STONE;
 	}
 
-	public function getVariantBitmask() : int{
-		return 0;
-	}
-
 	public function getName() : string{
 		return "Lapis Lazuli Ore";
 	}
