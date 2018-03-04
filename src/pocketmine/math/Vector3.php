@@ -35,8 +35,18 @@ class Vector3{
 	public $x;
 	public $y;
 	public $z;
-
+	
 	public function __construct($x = 0, $y = 0, $z = 0){
+		$a = [
+			$x,
+			$y,
+			$z
+		];
+		foreach ($a as $v) {
+			if (is_float($v) === false && is_int($v) === false) {
+				return false;
+			}
+		}
 		$this->x = $x;
 		$this->y = $y;
 		$this->z = $z;
